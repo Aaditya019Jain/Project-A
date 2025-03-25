@@ -8,5 +8,5 @@ Queries for testing:-
 <ul>
   <li>"What is the rank and medical condition of Jawan with ID 1001?"</li>
   <li>"List all jawans who belong to the same unit as Jawan 1001, their rank, and any medical history."</li>
-  <li>List all jawans who have the blood group ‘B+’ and their leave details.</li>
+  <li>"List all jawans who have the blood group ‘B+’ and their leave details."</li>
 </ul>
