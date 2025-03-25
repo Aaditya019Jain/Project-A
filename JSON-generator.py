@@ -44,7 +44,7 @@ The sturcture is: /n
 The input of the user is: 
 """
 
-user_input = Input("Enter Your Query: ")
+user_input = input("Enter Your Query: ")
 
 usr_prompt = """. /n Just give me which tables will be used to handle this information from the user. Now that you know which table and what values
 are used can you make a JSON out of it? the JSON should include the action being taken, the tables and the attribute values of the tables. Please enclose the JSON in ###{Your generated JSON}###
