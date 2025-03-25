@@ -128,8 +128,8 @@ for examples:
     }
   ],
   "values": {
-    "attribute": value of the 1st attribute
-    "attribute": value of the 2nd attribute
+    "attribute": value of the 1st attribute (mention only the value)
+    "attribute": value of the 2nd attribute (mention only the value)
   }
 }###"""
 
