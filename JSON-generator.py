@@ -64,7 +64,8 @@ for examples:
     }
   ],
   "values": {
-    "Jawan_ID": values of the attributes
+    "attribute": value of the 1st attribute
+    "attribute": value of the 2nd attribute
   }
 }###"""
 
