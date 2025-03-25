@@ -65,7 +65,7 @@ def json_to_mysql(query_json):
         return "Unsupported action"
 
 # Example usage
-query_json_str = "{
+query_json_str = """{
   "action": "SELECT",
   "constraint": 2,
   "tables": [
@@ -81,7 +81,7 @@ query_json_str = "{
   "values": {
     "Jawan_ID": "1001"
   }
-}"
+}"""
 query_json = json.loads(query_json_str)
 
 query = json_to_mysql(query_json)
