@@ -23,8 +23,10 @@ model = AutoModelForCausalLM.from_pretrained(
     device_map="auto"
 )
 
+import json
+
 def json_to_mysql(query_json):
-    action = query_json.get("action", "")
+    action = query_json.get("action", "").lower()
     tables = query_json.get("tables", [])
     values = query_json.get("values", {})
     constraint = query_json.get("constraint")
@@ -32,7 +34,7 @@ def json_to_mysql(query_json):
     if not tables:
         return "Error: No tables specified"
     
-    if action.lower() == "select":
+    if action == "select":
         # Extract table names and attributes
         select_fields = []
         table_aliases = {}
@@ -46,19 +48,20 @@ def json_to_mysql(query_json):
             table_aliases[table["table_name"]] = alias
             
             for attr in table.get("attributes", []):
-                select_fields.append(f"{alias}.{attr}")
+                if attr:  # Skip if attribute is null or empty
+                    select_fields.append(f"{alias}.{attr}")
             
             if i > 0:
-                # Assuming FK relation exists (using Jawan_ID as an example key)
                 joins.append(f"JOIN {table['table_name']} {alias} ON {alias}.Jawan_ID = t0.Jawan_ID")
         
         # Where clause
         where_clauses = []
         for key, value in values.items():
-            if isinstance(value, str) and "." in value:
-                where_clauses.append(f"t0.{key} = (SELECT {value})")
-            else:
-                where_clauses.append(f"t0.{key} = '{value}'")
+            if value:  # Skip if value is null
+                if isinstance(value, str) and "." in value:
+                    where_clauses.append(f"t0.{key} = (SELECT {value})")
+                else:
+                    where_clauses.append(f"t0.{key} = '{value}'")
         
         # Construct final query
         query = f"SELECT {', '.join(select_fields)} FROM {main_table} t0 "
@@ -71,11 +74,11 @@ def json_to_mysql(query_json):
         
         return query
     
-    elif action.lower() == "update":
+    elif action == "update":
         # Extract table name (assuming first table is being updated)
         table_name = tables[0]["table_name"]
-        set_clauses = [f"{key} = '{value}'" for key, value in values.items()]
-        where_clause = " AND ".join([f"{key} = '{value}'" for key, value in values.items()])
+        set_clauses = [f"{key} = '{value}'" for key, value in values.items() if value]
+        where_clause = " AND ".join([f"{key} = '{value}'" for key, value in values.items() if value])
         
         query = f"UPDATE {table_name} SET {', '.join(set_clauses)}"
         if where_clause:
