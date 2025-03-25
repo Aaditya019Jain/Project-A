@@ -1,4 +1,5 @@
 import torch
+import json
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
 # Check for GPU availability
@@ -77,3 +78,6 @@ response = generate_text(model_prompt)
 
 l = response.split("###")
 print(l[5])
+query_json_str = l[5]
+query_json = json.loads(query_json_str)
+# print(query_json)
