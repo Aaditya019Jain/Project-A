@@ -4,7 +4,7 @@
 To download model checkpoints, just run [model-download.py](https://github.com/Aaditya019Jain/Project-A/blob/main/model-download.py).
 
 ## JSON creation
-Using this pipeline the user can create JSON with the required Information using [JSON-generator.py]([https://github.com/Aaditya019Jain/Project-A/edit/main/README.md#:~:text=JSON,-%2Dgenerator.py](https://github.com/Aaditya019Jain/Project-A/blob/main/JSON-generator.py))
+Using this pipeline the user can create JSON with the required Information using [JSON-generator.py](https://github.com/Aaditya019Jain/Project-A/blob/main/JSON-generator.py)
 
 ## JSON to SQL
 The JSON can be converted to queries for any Databate like Postgress or MySQL. This code [JSON-to-SQL.py]() can be used to convert JSON to a MySQL query.
