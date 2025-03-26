@@ -1,3 +1,27 @@
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+
+# Check for GPU availability
+device = "cuda" if torch.cuda.is_available() else "cpu"
+
+# Enable 4-bit quantization
+quantization_config = BitsAndBytesConfig(
+    load_in_8bit=True,
+    bnb_8bit_compute_dtype=torch.float16,
+    bnb_8bit_use_double_quant=True,
+    bnb_8bit_quant_type="nf8"
+)
+
+# Load the model and tokenizer once
+model_name = "microsoft/Phi-3.5-mini-instruct"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+
+model = AutoModelForCausalLM.from_pretrained(
+    model_name,
+    quantization_config=quantization_config,
+    device_map="auto"
+)
+
 def generate_text(prompt, max_tokens=50):
     inputs = tokenizer(prompt, return_tensors="pt").to(device)
     with torch.no_grad():
