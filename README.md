@@ -1,7 +1,7 @@
 # Project-A
 
 ## Model Checkpoints
-To download model checkpoints, just run [model-download.py](https://github.com/Aaditya019Jain/Project-A/blob/main/model-download.py).
+To download model checkpoints, just run [model-download.py]([https://github.com/Aaditya019Jain/Project-A/blob/main/model-download.p](https://github.com/Aaditya019Jain/Project-A/blob/main/model-download.py)).
 
 ## JSON creation
 Using this pipeline the user can create JSON with the required Information using [JSON-generator.py](https://github.com/Aaditya019Jain/Project-A/edit/main/README.md#:~:text=JSON,-%2Dgenerator.py)
