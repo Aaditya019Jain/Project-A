@@ -10,7 +10,7 @@ Using this pipeline the user can create JSON with the required Information using
 The JSON can be converted to queries for any Databate like Postgress or MySQL. This code [JSON-to-SQL.py](https://github.com/Aaditya019Jain/Project-A/blob/main/JSON-to-SQL.py) can be used to convert JSON to a MySQL query.
 
 # To generate SQL Query (complete pipeline)
-The SQL query can be obtained from [integrated-pipeline.py](https://github.com/Aaditya019Jain/Project-A/edit/main/README.md#:~:text=Integrated,-%2Dpipeline%2Dnew.py) and [integrated-pipeline-new.py](https://github.com/Aaditya019Jain/Project-A/edit/main/README.md#:~:text=Integrated%2Dpipeline%2D-,new.py).
+The SQL query can be obtained from [integrated-pipeline.py](https://github.com/Aaditya019Jain/Project-A/blob/main/Integrated-pipeline.py) and [integrated-pipeline-new.py](https://github.com/Aaditya019Jain/Project-A/blob/main/Integrated-pipeline-new.py).
 The ```integrated-pipeline-new.py``` is an updated version of ```integrated-pipeline.py``` which provides better quality SQL queries with faster Inference.
 
 Queries for testing:-
