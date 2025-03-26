@@ -13,7 +13,7 @@ quantization_config = BitsAndBytesConfig(
 )
 
 # Load the model and tokenizer once
-model_name = "microsoft/Phi-3.5-mini-instruct"
+model_name = "<path to the model>"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 
 model = AutoModelForCausalLM.from_pretrained(
