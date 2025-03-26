@@ -1,3 +1,4 @@
+import json
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 
@@ -80,6 +81,10 @@ response = generate_text(model_prompt)
 
 l = response.split("###")
 l2 = response.split("```")
+
+#l[5] is a string currently, if proper JSON is needed use this
+query_json_str = l[5]
+query_json = json.loads(query_json_str) #query_json is a proper JSON which can be used for further processing
 
 print(f"The JSON is: \n{l[5]}")
 print(f"The SQL Query is: \n{l2[1]}")
